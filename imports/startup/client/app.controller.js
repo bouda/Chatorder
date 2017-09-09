@@ -6,12 +6,13 @@ import { Meteor } from 'meteor/meteor';
 class AppController {
   constructor($scope, $state) {
     this.stateName = $state.$current.name;
+    this.state = $state;
     //this.stateName = "Dashboard";
   }
 
-  doLogout($state){
+  doLogout(){
     Meteor.logout();
-    $state.go('app.login');
+    this.state.go('app.login');
   }
 }
 

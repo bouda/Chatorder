@@ -39,6 +39,7 @@ angular
                   //event.preventDefault();
                   $state.go('app.login');
                 }
+                $rootScope.$broadcast('stateChanged', trans.$to().data.name);
              }
         });
     })
@@ -59,7 +60,8 @@ angular
                 url: '/login',
                 template: '<login></login>',
                 data: {
-                  'AUTH_REQUIRED' : false
+                  'AUTH_REQUIRED' : false,
+                  'name': 'Login'
                 }
             })
             // Dashboard page
@@ -67,7 +69,8 @@ angular
                 url: '/dashboard',
                 template: '<dashboard></dashboard>',
                 data: {
-                  'AUTH_REQUIRED' : true
+                  'AUTH_REQUIRED' : true,
+                  'name': 'Dashboard'
                 }
             })
 
@@ -76,7 +79,8 @@ angular
                 url: '/orders',
                 template: '<orders></orders>',
                 data: {
-                  'AUTH_REQUIRED' : true
+                  'AUTH_REQUIRED' : true,
+                  'name': 'Orders'
                 }
             })
 			;

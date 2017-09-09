@@ -9,6 +9,7 @@ class LoginController {
 
     this.credentials = {};
     this.isError = false;
+    this.state = $state;
 
   }
 
@@ -21,7 +22,7 @@ class LoginController {
         //return false;
       }
 
-      $state.go('app.dashboard');
+      this.state.go('app.dashboard');
     });
   }
 
