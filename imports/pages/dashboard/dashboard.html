@@ -1,0 +1,177 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header" data-background-color="orange">
+          <i class="material-icons">shopping_cart</i>
+        </div>
+        <div class="card-content">
+          <p class="category"> Pendings Orders </p>
+          <h3 class="title">{{vm.ordersPending}}</h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="material-icons">date_range</i> Last 24 Hours
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header" data-background-color="green">
+          <i class="material-icons">shopping_cart</i>
+        </div>
+        <div class="card-content">
+          <p class="category">Orders on Hold</p>
+          <h3 class="title">{{vm.ordersOnHold}}</h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="material-icons">date_range</i> Last 24 Hours
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header" data-background-color="red">
+          <i class="material-icons">shopping_cart</i>
+        </div>
+        <div class="card-content">
+          <p class="category">Orders Finished</p>
+          <h3 class="title">{{vm.ordersFinished}}</h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="material-icons">date_range</i> Last 24 Hours
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="card card-stats">
+        <div class="card-header" data-background-color="blue">
+          <i class="fa fa-twitter"></i>
+        </div>
+        <div class="card-content">
+          <p class="category">Followers</p>
+          <h3 class="title">+245</h3>
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+            <i class="material-icons">date_range</i> Last 24 Hours
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-6 col-md-12">
+
+      <div class="card">
+          <div class="card-header" data-background-color="purple">
+              <h4 class="title">New Client</h4>
+             <p class="category">Add New Client</p>
+          </div>
+          <div class="card-content">
+              <form>
+
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Fist Name</label>
+                            <input type="text" ng-model="vm.newClient.fname" class="form-control" >
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Last Name</label>
+                            <input type="text" ng-model="vm.newClient.lname" class="form-control" >
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Phone</label>
+                            <input type="text" ng-model="vm.newClient.phone" class="form-control" >
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Email</label>
+                            <input type="text" ng-model="vm.newClient.email" class="form-control" >
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Adress</label>
+                            <input type="text" ng-model="vm.newClient.address" class="form-control" >
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-4">
+                          <div class="form-group label-floating">
+                            <label class="control-label">City</label>
+                            <input type="text" ng-model="vm.newClient.city" class="form-control" >
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Country</label>
+                            <input type="text" ng-model="vm.newClient.country" class="form-control" >
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                          <div class="form-group label-floating">
+                            <label class="control-label">Postal Code</label>
+                            <input type="text" ng-model="vm.newClient.zipcode" class="form-control" >
+                          </div>
+                      </div>
+                  </div>
+
+
+                  <button type="submit" ng-click="vm.addNewClient(vm.newClient)" class="btn btn-primary pull-right">Save</button>
+                  <div class="clearfix"></div>
+              </form>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12">
+      <div class="card">
+                      <div class="card-header" data-background-color="orange">
+                          <h4 class="title">Clients</h4>
+                          <p class="category">Client list</p>
+                      </div>
+                      <div class="card-content table-responsive">
+                          <table class="table table-hover">
+                              <thead class="text-warning">
+                                  <th>First Name</th>
+                                  <th>Last Name</th>
+                                  <th>Phone</th>
+                                  <th>Email</th>
+                              </thead>
+                              <tbody>
+                                  <tr ng-repeat="client in vm.clients">
+                                    <td>{{client.fname}}</td>
+                                    <td>{{client.lname}}</td>
+                                    <td>{{client.phone}}</td>
+                                    <td>{{client.email}}</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+    </div>
+  </div>
+</div>
