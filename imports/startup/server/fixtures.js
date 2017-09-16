@@ -22,11 +22,11 @@ Meteor.startup(function() {
 //  }
 
 
-  //if (Orders.find().count() === 0) {
-  //  Messages.remove({});
-  //  Orders.remove({});
+  if (Orders.find().count() > 0) {
+    Messages.remove({});
+    Orders.remove({});
 
-  /*  var messages = [
+    var messages = [
       {
         senderId: null,
         content: 'http://localhost:3000/ufs/pictures/275bMpi9rqtNDJ6qZ/Capture.PNG',
@@ -85,6 +85,70 @@ Meteor.startup(function() {
         deliveryhoure: '16:00',
         deliveryType: 'pickup',
         clientId:'1'
+      },
+      {
+        username: 'Anass Tatari',
+        deliveryPoint: 'Corniche',
+        deliveryDate: moment().add(2, 'weeks').toDate(),
+        deliveryhoure: '16:00',
+        deliveryType: 'pickup',
+        clientId:'1'
+      },
+      {
+        username: 'Anass Tatari',
+        deliveryPoint: 'Corniche',
+        deliveryDate: moment().add(2, 'weeks').toDate(),
+        deliveryhoure: '16:00',
+        deliveryType: 'pickup',
+        clientId:'1'
+      },
+      {
+        username: 'Anass Tatari',
+        deliveryPoint: 'Corniche',
+        deliveryDate: moment().add(2, 'weeks').toDate(),
+        deliveryhoure: '16:00',
+        deliveryType: 'pickup',
+        clientId:'1'
+      },
+      {
+        username: 'Anass Tatari',
+        deliveryPoint: 'Corniche',
+        deliveryDate: moment().add(2, 'weeks').toDate(),
+        deliveryhoure: '16:00',
+        deliveryType: 'pickup',
+        clientId:'1'
+      },
+      {
+        username: 'Anass Tatari',
+        deliveryPoint: 'Corniche',
+        deliveryDate: moment().add(2, 'weeks').toDate(),
+        deliveryhoure: '16:00',
+        deliveryType: 'pickup',
+        clientId:'1'
+      },
+      {
+        username: 'Anass Tatari',
+        deliveryPoint: 'Corniche',
+        deliveryDate: moment().add(2, 'weeks').toDate(),
+        deliveryhoure: '16:00',
+        deliveryType: 'pickup',
+        clientId:'1'
+      },
+      {
+        username: 'Anass Tatari',
+        deliveryPoint: 'Corniche',
+        deliveryDate: moment().add(2, 'weeks').toDate(),
+        deliveryhoure: '16:00',
+        deliveryType: 'pickup',
+        clientId:'1'
+      },
+      {
+        username: 'Anass Tatari',
+        deliveryPoint: 'Corniche',
+        deliveryDate: moment().add(2, 'weeks').toDate(),
+        deliveryhoure: '16:00',
+        deliveryType: 'pickup',
+        clientId:'1'
       }
     ];
 
@@ -92,10 +156,10 @@ Meteor.startup(function() {
       let message = Messages.findOne({ chatId: { $exists: false } });
       chat.lastMessage = message;
       let chatId = Orders.insert(chat);
-      Messages.update(message._id, { $set: { chatId: chatId } });
+      Messages.update(message._id, { $set: { order_id: chatId } });
     });
-    */
-//  }
+
+  }
 //Meteor.users.remove({});
 //Orders.remove({});
 //Messages.remove({});

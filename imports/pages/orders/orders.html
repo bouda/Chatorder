@@ -1,11 +1,11 @@
 <div class="container-fluid">
 
   <div class="row">
-    <div class="col-lg-12 col-md-12">
+    <div class="animated_table" ng-class="vm.OrderDetailClass">
       <div class="card">
         <div class="card-header" data-background-color="orange">
-            <h4 class="title">Clients</h4>
-            <p class="category">Client list</p>
+            <h4 class="title">Orders</h4>
+            <p class="category">Orders list</p>
         </div>
 
         <div class="card-content table-responsive">
@@ -22,7 +22,7 @@
                 </thead>
 
                 <tbody>
-                  <tr ng-repeat="order in vm.orders" class="{{order.status}}" ng-class="{'checked': order.checked}">
+                  <tr dir-paginate="order in vm.orders | itemsPerPage: vm.perPage" total-items="vm.ordersCount" class="{{order.status}}">
                     <td>
                       <div class="checkbox">
                         <label>
@@ -36,7 +36,7 @@
                     <td><strong> {{order.deliveryhoure}} </strong></td>
                     <td><strong>{{order.status}} </strong></td>
                     <td class="td-actions text-right">
-                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
+                      <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs" ng-click="vm.Showetails(order._id)">
                         <i class="material-icons">edit</i>
                       </button>
                       <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
@@ -48,7 +48,60 @@
                 </tbody>
               </table>
 
+              <div class="row">
+
+                 <div class="col-sm-12">
+
+                   <dir-pagination-controls on-page-change="vm.pageChanged(newPageNumber)"></dir-pagination-controls>
+
+                 </div>
+              </div>
+
         </div>
       </div>
+    </div>
+
+
+
+    <div class="col-md-6 animated" ng-class="vm.OrderDetailStyle">
+    	<ul class="timeline timeline-simple">
+    		<li class="timeline-inverted" ng-repeat="message in vm.messages" ng-if="message.type == 'text'">
+    			<div class="timeline-badge danger">
+    				<i class="material-icons">message</i>
+    			</div>
+    			<div class="timeline-panel">
+    				<div class="timeline-heading">
+    					<span class="label label-danger">Some title</span>
+    				</div>
+    				<div class="timeline-body">
+    					<p>{{message.content}}</p>
+              <div class="dropdown pull-right">
+    						<button type="button" class="btn btn-round btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    							<i class="material-icons">build</i>
+    							<span class="caret"></span>
+    						<div class="ripple-container"></div></button>
+    						<ul class="dropdown-menu dropdown-menu-right" role="menu">
+    							<li>
+    								<a href="#action">Action</a>
+    							</li>
+    							<li>
+    								<a href="#action">Another action</a>
+    							</li>
+    							<li>
+    								<a href="#here">Something else here</a>
+    							</li>
+    							<li class="divider"></li>
+    							<li>
+    								<a href="#link">Separated link</a>
+    							</li>
+    						</ul>
+    					</div>
+    				</div>
+    				<h6>
+    					<i class="ti-time"></i> 11 hours ago via Twitter
+    				</h6>
+    			</div>
+    		</li>
+    	</ul>
     </div>
 </div>

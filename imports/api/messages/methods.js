@@ -20,7 +20,7 @@ Meteor.methods({
     }
     return {
       messageId: Messages.insert({
-        chatId: chatId,
+        chatId: orderId,
         senderId: Meteor.userId(),
         content: text,
         createdAt: new Date(),
